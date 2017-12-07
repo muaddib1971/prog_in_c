@@ -1,0 +1,32 @@
+1. False.
+
+2. 3rd Generation languages allow some independence from hardware for example in c by having a pointer datatype we don't need to worry about the actual memory details on a particular architecture - the compiler handles that for us. 
+
+3. False
+Pi is declared a double but the resulting calculation is then stored in a float.
+
+4. Yes, the ascii value of 4 is stored and the printf statement putputs 4.
+
+5. Yes, outputs -4.000000
+
+6. No, this IS a valid declaration and does not produce a warning. 6.5 is truncated to fit and the printf statement outputs 6.
+
+7. A Struct. This is because potentially a student record will contain information of several different types. The student number might be an int, the name would be a char array etc. 
+
+8. Either 0 or 1. C has no boolean type and the order of operations in c means that the comparison operator is evaluated before the assignment operator.
+
+9. False.
+
+10. 5, because of the order of operations. (Follows bodmas) 
+
+11. 39
+
+12. 14, because the order of evaluation for assignments flows left to right.
+
+13. 101, the increment takes place before the assignment.
+
+14. True
+
+15. True
+
+16. Memory on the stack is reclaimed when the code exits the block in which it is valid.

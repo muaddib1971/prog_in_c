@@ -1,0 +1,54 @@
+CC=gcc
+CFLAGS=-ansi -Wall -pedantic -Wextra -Werror -g
+LFLAGS=
+TARGETS= matrix textdoc sorts sortsptr personlist
+
+all: $(TARGETS)
+
+testconst:testconst.c
+	gcc $(CFLAGS) $(LFLAGS) -o testconst testconst.c
+
+array_assign:array_assign.c
+	gcc $(CFLAGS) $(LFLAGS) -o array_assign array_assign.c
+
+matrix: matrix.o safemalloc.o
+	gcc $(LFLAGS) matrix.o safemalloc.o -o matrix
+
+textdoc:textdoc.o safemalloc.o
+	gcc $(LFLAGS) $^ -o $@
+
+sorts: sorts.o safemalloc.o
+	gcc $(LFLAGS) sorts.o safemalloc.o -o sorts
+
+sortsptr: sortsptr.o safemalloc.o 
+	gcc $(LFLAGS) sortsptr.o safemalloc.o -o sortsptr
+
+#matrix.o:matrix.c matrix.h safemalloc.h
+#	gcc $(CFLAGS) -c matrix.c
+#
+#textdoc.o:textdoc.c textdoc.h safemalloc.h
+#	gcc $(CFLAGS) -c textdoc.c
+#
+#safemalloc.o:safemalloc.c safemalloc.h
+#	gcc $(CFLAGS) -c safemalloc.c
+#
+#sorts.o:sorts.c sorts.h safemalloc.h
+#	gcc $(CFLAGS) -c sorts.c
+#
+#sortsptr.o:sortsptr.c sortsptr.h safemalloc.h
+#	gcc $(CFLAGS) -c sortsptr.c
+
+personlist: personlist.o list.o safemalloc.o
+	gcc $(LFLAGS) personlist.o list.o safemalloc.o -o personlist
+
+%.o:%.c *.h
+	$(CC) $(CFLAGS) -c $<
+#personlist.o: personlist.c list.h
+#	gcc $(CFLAGS) -c personlist.c
+
+#list.o: list.c list.h
+#	gcc $(CFLAGS) -c list.c
+
+.PHONY:clean
+clean: 
+	rm -f *.o $(TARGETS) ~*

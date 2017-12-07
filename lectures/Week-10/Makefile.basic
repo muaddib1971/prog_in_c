@@ -1,0 +1,25 @@
+CC=gcc
+CFLAGS=-ansi -Wall -pedantic -g
+LFLAGS=
+TARGETS=personlist
+HEADERS=*.h
+
+all:$(TARGETS)
+
+personlist:personlist.o list.o safemalloc.o
+	$(CC) $(LFLAGS) personlist.o list.o safemalloc.o -o personlist
+
+
+personlist.o:personlist.c list.h safemalloc.h
+	$(CC) $(CFLAGS) -c personlist.c
+
+
+list.o:list.c list.h safemalloc.h
+	gcc $(CFLAGS) -c list.c 
+
+safemalloc.o:safemalloc.c safemalloc.h
+	gcc $(CFLAGS) -c safemalloc.c
+
+.PHONY:clean
+clean:
+	rm -f *.o personlist *~
