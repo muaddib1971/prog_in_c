@@ -1,0 +1,28 @@
+
+It is important to note that strcpy() or strncpy() do not explicitly
+terminate the string (in which the characters are copied into) with a
+null character.
+
+This fact can be ignored when using strcpy() function mainly because,
+strcpy() copies all the characters of the source string (text2 in
+strcpy_1.c) into the destination string (text1 in strcpy_1.c). ie. it
+also copies the null character of the source string into the
+destination string.  Whereas when, strncpy() is used, only a specified
+number (3 in strncpy_2.c) of characters are copied from the source
+string to destination string.  Due to which the null character may not
+necessarily be copied into the destination string (text1). 
+
+This should explain the reason why the output of 'text1' in
+strncpy_2.c is 'Tesple' instead of expected 'Tes'. The 'ple' of the
+original string still remains in the array. ie. text1 is not null
+terminated after 3 characters.
+
+The remedy for this should be, after strncpy() one could explicitly
+null terminate the string :
+
+    text1[n] = '\0';
+
+where 'n' is the value passed as the third parameter of strncpy()
+function.  (in case of strncpy_2. n=3)
+
+.Zahid.
