@@ -1,1 +1,0 @@
-../BasicIO/getString-basic.c

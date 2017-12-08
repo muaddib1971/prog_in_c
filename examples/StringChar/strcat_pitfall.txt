@@ -1,7 +1,0 @@
-When using strcat(), the programmer should ensure that the space allocated
-to the first (destination) string is large enough to store the 
-concatenated string.
-
-Like in the code strcat_1.c, there is a potential problem since there is no
-checking done of the lengths of the two strings. A potentially better way 
-is shown in strcat_2.c.

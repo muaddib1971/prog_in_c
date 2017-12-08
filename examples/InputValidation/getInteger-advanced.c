@@ -1,1 +1,0 @@
-../BasicIO/getInteger-advanced.c
