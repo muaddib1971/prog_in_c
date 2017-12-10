@@ -21,18 +21,15 @@ int main(void)
     switch(opt)
     {
         case FIRST:
-            printf("%d\n", 1);
+            printf("%d\n", opt+1);
             break;
         case SECOND:
-            printf("%d\n", 2);
+            printf("%d\n", opt+1);
             break;
         case THIRD:
-            printf("%d\n", 3);
-            break;
+            printf("%d\n", opt+1);
         case FOURTH:
-            printf("%d\n", 4);
-        case FIFTH:
-            printf("%d\n", 5);
+            printf("%d\n", opt+1);
     }
     return EXIT_SUCCESS;
 }
