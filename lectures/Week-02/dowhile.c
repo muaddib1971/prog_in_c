@@ -2,7 +2,7 @@
 #include <stdlib.h>
 /* This program shows the use of a do-while loop. 
  * Notice that the loop will always run at least once even 
- * if the test can never be true. True this by setting the test to be
+ * if the test can never be true. Test this by setting the test to be
  * 1==0
  */
 int main(void)

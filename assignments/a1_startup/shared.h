@@ -24,6 +24,7 @@ typedef enum
         TRUE
 } BOOLEAN;
 
+
 /**
  * the maximum length of a player name is 20 chars
  **/
@@ -48,4 +49,10 @@ struct coordinate
         int x, y;
 };
 
-#endif
+/**
+ * struct coordinate coord;
+ * coord.x = 2;
+ * coord.y=1;
+ **/
+
+#endif /* SHARED_D */

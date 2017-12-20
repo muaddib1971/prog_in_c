@@ -34,4 +34,4 @@ typedef enum token gameboard[MAXHEIGHT][MAXWIDTH];
  * public functions for this module. Please see gameboard.c for further details
  **/
 void gameboard_init(gameboard);
-#endif
+#endif /* BOARD_H */
