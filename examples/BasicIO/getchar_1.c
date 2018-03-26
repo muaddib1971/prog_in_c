@@ -25,7 +25,7 @@ int main(void)
      */
 
     c = getchar();		
-    putchar(c);		/* putchar accepts an int, not a char */
+    putchar(c);	/* putchar accepts an int, not a char */
 
     return EXIT_SUCCESS;
 }
