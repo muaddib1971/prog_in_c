@@ -1,29 +1,46 @@
-/***********************************************************************
-* CPT220 - Programming in C
-* Study Period 4 2017 Assignment #1 
-* Full Name        : EDIT HERE
-* Student Number   : EDIT HERE
-* Start up code provided by Paul Miller
-***********************************************************************/
-
+/******************************************************************************
+ * Student Name    :
+ * RMIT Student ID :
+ * COURSE CODE     :
+ *
+ * Startup code provided by Paul Miller for use in "Programming in C",
+ * study period 2, 2018.
+ *****************************************************************************/
 #include "rules.h"
 #include "game.h"
+#include "player.h"
 
 /**
- * defines whether a game is over. I handle all boards in the same way using
- * constants and variables that have been designed for the game
+ * This file implements the functions that are part of implementing the game
+ * rules. Note that there is no new data structures here other than the ones
+ * elsewhere in the program
  **/
-struct game_state get_game_state(struct game* thegame)
+
+/**
+ * check in the horizontal, vertical, left and right diagonal directions whether
+ * there is a winning numinrow tokens that matches the player's token. If there
+ * is, return TRUE
+ **/
+BOOLEAN is_winner(const struct player* curplayer)
 {
-        struct game_state cur_game_state = { ONGOING, NULL, NULL };
-        return cur_game_state;
+        return FALSE;
 }
 
 /**
- * tests if a move is valid and if it is then it applies the move to the
- * gameboard and otherwise it returns FALSE
+ * check if a move is valid. It is valid if the cell specified is empty
  **/
-BOOLEAN apply_move(struct game* thegame, const struct coordinate* coord)
+BOOLEAN move_is_valid(const struct player* curplayer,
+                      const struct coordinate* curmove)
+{
+        return FALSE;
+}
+
+/**
+ * apply the move to the board - simply set the board coordinates specified by
+ * themove to the toke specified.
+ **/
+BOOLEAN apply_move(board theboard, const struct coordinate* themove,
+                   enum cell token)
 {
         return FALSE;
 }

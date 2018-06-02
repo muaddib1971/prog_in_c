@@ -1,44 +1,66 @@
-/***********************************************************************
-* CPT220 - Programming in C
-* Study Period 4 2017 Assignment #1 
-* Full Name        : EDIT HERE
-* Student Number   : EDIT HERE
-* Start up code provided by Paul Miller
-***********************************************************************/
-
+/******************************************************************************
+ * Student Name    :
+ * RMIT Student ID :
+ * COURSE CODE     :
+ *
+ * Startup code provided by Paul Miller for use in "Programming in C",
+ * study period 2, 2018.
+ *****************************************************************************/
 #include "game.h"
-#include "rules.h"
 
 /**
- * this function swaps the pointers to the two players in the game. It is the
- * code responsible for changing the current player. Please note that many
- * of you will find it difficult to figure out what to do for this function.
- * This is considered a high distinction requirement and as such not something
- * that everyone is expected to be able to do. For this reason, this function
- * is worth 5 bonus marks.
+ * this file contains the implementation of functions for the management of the
+ * game
+ **/
+
+/**
+ * initialises the game to a starting state. You should select a random token
+ * for one player and ensure the second player has a different token. You should
+ * call init_player() passing in the address of the player, its token, and a
+ * pointer to this game. Finally you should initialise the pointers to each
+ * player ensuring that a random player is selected to play the game. You should
+ * also ensure the board is coorectly initialised through a call to
+ * init_board().
+ **/
+enum input_result init_game(struct game* newgame, struct player players[])
+{
+        return IR_FAILURE;
+}
+
+/**
+ * manages the main game loop - calls init_player to initialise the players and
+ * then loops and calls take_turn for the current player and swaps players until
+ * a player has won the game
+ **/
+struct player* play_game(struct player players[])
+{
+        /* the game struct that holds the data on the game state */
+        struct game curgame;
+        /* init the game struct */
+        /* the main game loop */
+        /* swap the game pointers */
+        /* return the winner */
+        return NULL;
+}
+
+/**
+ * swaps the two player pointers for the two players playing the current game
+ * (it's a way for us to swap who the current player is). Please note that an
+ * implementation that swaps values rather than pointers will not get full marks
+ * for this. This function is only worth a few marks but the intellectual
+ * content understanding is very important and thus it is worth substantially
+ * more than a few lines of code are worth elsewhere in this assignment.
  **/
 void swap_players(struct player** first, struct player** second)
 {
 }
 
 /**
- * This function is responsible for the initialisation of the game (and thus
- * the game struct. First initialise all structures to be empty (including
- * players and the board. Next, ask the player for the player's name and assign
- * the token values to the players and also initialise the computer player,
+ * implements the rules for the first round of the game, the so-called 
+ * swap2 rules. Please see the assignment specification and game rules for 
+ * further details.
  **/
-void init_game(struct game* thegame)
+enum input_result first_round(struct game* thegame)
 {
-}
-
-/**
- * the main function that manages the game loop. You'll need to call
- * initialisation functions. To initialise the game struct, which includes the
- * players and then it's just a matter of alternating turns until the end of
- * the game. At the end of the game, you'll need to print out details of the
- * final game state.
- **/
-void play_game(void)
-{
-        struct game thegame;
+        return IR_FAILURE;
 }

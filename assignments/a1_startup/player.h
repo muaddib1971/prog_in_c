@@ -1,65 +1,47 @@
-/***********************************************************************
-* CPT220 - Programming in C
-* Study Period 4 2017 Assignment #1 
-* Full Name        : EDIT HERE
-* Student Number   : EDIT HERE
-* Start up code provided by Paul Miller
-***********************************************************************/
+/******************************************************************************
+ * Student Name    :
+ * RMIT Student ID :
+ * COURSE CODE     :
+ *
+ * Startup code provided by Paul Miller for use in "Programming in C",
+ * study period 2, 2018.
+ *****************************************************************************/
+#include "board.h"
+#include "io.h"
+#include <limits.h>
 
-#include "gameboard.h"
-#include "gameio.h"
-#include "shared.h"
+/**
+ * this file defines the player struct that keeps track of information about
+ * each player as the game progresses.
+ **/
+
 #ifndef PLAYER_H
 #define PLAYER_H
-
-/**
- * The purpose of this module is the manage players in the game. Feel free
- * to add data types and functions to assist in managing of players to this
- * module.
- **/
-
-/* forwards declaration of the game struct so we can have a pointer to it in
- * function declarations
- */
+/* forwards declaration of the game struct so we can pointers to game passed in
+ * as parameters in this module */
 struct game;
 
-/* the two types of players in the game */
-enum player_type
-{
-        HUMAN,
-        COMPUTER
-};
+/* the maximum length of a player's name */
+#define NAMELEN 20
 
-/**
- * the player struct - each player has a name, a type, and a token enum. 
- * the player also has a pointer to the current game as a player really doesn't 
- * exist outside of a game.
- **/
+/* the player struct - represents a player in the game */
 struct player
 {
+        /* the player's name */
         char name[NAMELEN + 1];
-        enum player_type type;
-        enum token token;
-        struct game* thegame;
+        /* their token type */
+        enum cell token;
+        /* a pointer to the current game - this allows us to not have to pass
+         * this in as a parameter to functions that already have a pointer to
+         * the player */
+        struct game* curgame;
 };
 
 /**
- * a global array of the chars representing the contents of the game board. 
- * This is labelled extern as the memory is allocated elsewhere - this 
- * declaration just records the fact that there will be such an array.
+ * publicly callable functiohs from this module
  **/
-extern const char token_chars[];
+enum input_result init_player(struct player*, enum cell, struct game*, int);
 
-/**
- * the number of token chars in the token_chars array
- **/
-#define NUMTOKENCHARS 3
+enum input_result take_turn(struct player*);
 
-/**
- * the public functions available from this module. Please see player.c for a 
- * description of each of these functions. 
- **/
-void init_player(struct player*, enum player_type, struct game*);
-void take_turn(struct player*);
-
-#endif /* PLAYER_H */
+#endif

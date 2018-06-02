@@ -1,0 +1,84 @@
+card.c:30
+    strcpy(name, suits[card.suit-1]);
+should be: 
+    strcpy(name, suits[card.suit]);
+
+deck.c:19 
+    currcard is initialised to 0 but never incremented.
+    solution: increment the counter in the loop.
+
+card.c:53
+    strcpy(name, faces[card.face-1]);
+should be:
+    strcpy(name, faces[card.face]);
+
+poker.c:17
+    name is declared as a single char, not a string.
+    this impacts upon: 
+        calls to getname() and strcpy(). Personally I would be happy to
+        this as two bugs as it is quite a bit larger than some of the 
+        others. If students only find four but pull this one out, count
+        it as two bugs.
+
+solution:
+    declare name as an array of char and remove the & operator from each
+    use of ``name''.
+
+input.c:39
+    while(success) - success starts as false so this while loop never runs
+solution:
+    while(!success)
+
+input.c:51
+    if(name[strlen(name)] != '\n')
+should be
+    if(name[strlen(name)-1] != '\n') - we want to remove the newline 
+    character which if present will be the last character before the 
+    nul terminator and thus one less than the length of the line.
+
+input.c:60
+    name[strlen(name)]=0 has no effect as it says replace the nul terminator
+    with a nul terminator.
+solution: 
+    name[strlen(line)-1]=0 or similar.
+
+hand.c:69:
+    print_card(player.hand[count+1]) - a case of an off by one error.
+should be:
+    print_card(player.hand[count]);
+
+hand.c:67
+    for(count = 0; count <= HAND_SIZE; ++count)
+should be:
+    for(count = 0; count < HAND_SIZE; ++count)
+
+hand.c:49: 
+    static unsigned card_index; - card_index is never initialized.
+should be: 
+    static unsigned card_index=0; - initialise once
+
+another issue here (and therefore another bug) is that it is never 
+incremented: 
+
+hand.c:53
+    nextcard = deck[card_index] which means that we only ever get the 
+    first card if card_index was initialized to 0
+
+solution: 
+    nextcard = deck[card_index++];
+
+hand.c:42
+    void dealcard(struct card * deck, struct player player, unsigned cardno)
+    player is not a pointer as so the changes made inside the function 
+    don't take when we leave the function.
+solution:
+    void dealcard(struct card * deck, struct player * player, unsigned cardno)
+also change all calls to dealcard to pass in a pointer and change all player.attribute to player->attribute
+
+this is also a problem for the deal() function as the struct players need
+to be struct player *
+
+deck.c:67
+    deck[swap_index]=swap
+should be:
+    deck[count] = swap

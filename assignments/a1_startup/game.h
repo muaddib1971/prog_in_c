@@ -1,70 +1,47 @@
-/***********************************************************************
-* CPT220 - Programming in C
-* Study Period 4 2017 Assignment #1 
-* Full Name        : EDIT HERE
-* Student Number   : EDIT HERE
-* Start up code provided by Paul Miller
-***********************************************************************/
-
-#include <stdlib.h>
-#include <time.h>
-
-#include "gameboard.h"
-#include "gameio.h"
+/******************************************************************************
+ * Student Name    :
+ * RMIT Student ID :
+ * COURSE CODE     :
+ *
+ * Startup code provided by Paul Miller for use in "Programming in C",
+ * study period 2, 2018.
+ *****************************************************************************/
+#include "board.h"
 #include "player.h"
 #include "rules.h"
 
 /**
- * The role of this module is for to manage the overall game. This means the 
- * management of the game initialization, game loop and finalization and ending
- * the game.
+ * This .h file and the accompanying .c file (game.c) manage the overall game.
+ * Key to this is the game struct. The key data structures that don't have a
+ * file of their own are defined here. This module also manages the game loop
+ * which is the key to progress of the game.
  **/
 
 #ifndef GAME_H
-#define GAME_H
 
-/* this struct holds the game state at each moment */
+#define GAME_H
+#define NUM_PLAYERS 2
+
+/**
+ * the game struct defines the information about the game state that is passed
+ *to the various functions that are part of the implementation of a game.
+ **/
 struct game
 {
-        /**
-         * the width / height of the board that is being played on
-         **/
-        int board_dimension;
-
-        /**
-         * the number in a row required to win a game
-         **/
-        int num_in_row;
-
-        /**
-         * the array of the actual player data
-         **/
         struct player players[NUM_PLAYERS];
-
-        /**
-         * pointers to the current player and the other player. These are
-         * used to manage whose turn it is.
-         **/
-        struct player* current;
-        struct player* other;
-
-        /**
-         * the 2d game board. This is defined in the gameboard.c/h module
-         **/
-        gameboard board;
-
-        /**
-         * has the user decided to quit the game?
-         **/
-        BOOLEAN quit;
+        board gameboard;
+        struct player* current, *other;
 };
 
 /**
- * "public" functions implemented for this module. Please see game.c for
- * comments and and explanation of how they work.
+ * public interface specifications for functions implemented in this module
  **/
-void swap_players(struct player**, struct player**);
-void init_game(struct game*);
-void play_game(void);
+enum input_result init_game(struct game*, struct player[]);
 
-#endif /* GAME_H */
+play_game(void);
+
+enum input_result first_round(struct game*);
+
+void swap_players(struct player**, struct player**);
+
+#endif

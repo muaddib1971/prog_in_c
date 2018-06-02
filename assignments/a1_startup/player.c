@@ -1,43 +1,37 @@
-/***********************************************************************
-* CPT220 - Programming in C
-* Study Period 4 2017 Assignment #1 
-* Full Name        : EDIT HERE
-* Student Number   : EDIT HERE
-* Start up code provided by Paul Miller
-***********************************************************************/
-
+/******************************************************************************
+ * Student Name    :
+ * RMIT Student ID :
+ * COURSE CODE     :
+ *
+ * Startup code provided by Paul Miller for use in "Programming in C",
+ * study period 2, 2018.
+ *****************************************************************************/
 #include "player.h"
 #include "game.h"
 
 /**
- * provides a mapping from tokens to chars for display
+ * this file contains the implementation of the functions for manipulation of
+ * the player type
  **/
-const char token_chars[NUMTOKENCHARS] = { ' ', 'O', 'X' };
 
 /**
- * initialises a player based on user input and the game pointer passed into
- * the init_player function. We do this because there's no such thing as a
- * player outside of a game. If we did not do this we would have to pass thegame
- * into player every time we called a function in player.
+ * initialises the player passed in so that it has the token specified. You
+ * should also prompt the user for this name
  **/
-void init_player(struct player* new_player, enum player_type type,
-                 struct game* thegame)
+enum input_result init_player(struct player* curplayer, enum cell token,
+                              struct game* thegame, int playernum)
 {
+
+        return IR_FAILURE;
 }
 
 /**
- * This function handles turns for both human and computer players. 
- *
- * In all cases, display the state of the board first.
- * 
- * If this is a human player, prompt for their move validate it and if it 
- * is valid, apply it. If it is not valid, reprompt until a valid ove is 
- * entered.
- *
- * If this is a computer player, generate random x and y values for a move. Test
- * if the move is a valid move, apply it, otherwise try again generating a new
- * random x and y pair.
+ * get input for a turn from the user, validate it as a move coordinate and if
+ * it is valid, apply the move to the board. If the move is not valid then
+ * display an error message but if it is valid return a IR_SUCCESS result. If a
+ * user has chosen to quit the game, return IR_RTM.
  **/
-void take_turn(struct player* curplayer)
+enum input_result take_turn(struct player* curplayer)
 {
+        return IR_FAILURE;
 }
