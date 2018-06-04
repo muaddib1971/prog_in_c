@@ -38,7 +38,7 @@ struct game
  **/
 enum input_result init_game(struct game*, struct player[]);
 
-play_game(void);
+void play_game(void);
 
 enum input_result first_round(struct game*);
 
