@@ -26,6 +26,9 @@ int main(void)
                         /* based on the choice the user made you should:
                          */
                                 /* play the game */
+                                        /* capture the winner and add them to
+                                         * the scoreboard if there is space */
+                                /* display the high scores */
                                 /* quit the program */
         return EXIT_SUCCESS;
 }

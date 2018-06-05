@@ -36,7 +36,7 @@ struct game
 /**
  * public interface specifications for functions implemented in this module
  **/
-enum input_result init_game(struct game*, struct player[]);
+enum input_result init_game(struct game*);
 
 void play_game(void);
 
