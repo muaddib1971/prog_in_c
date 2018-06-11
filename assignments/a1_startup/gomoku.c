@@ -17,7 +17,6 @@ int main(void)
          * get started. You should start by getting a menu working that behaves
          * the same as the sample executable. 
          */
-        /* initialise the scoreboard to an empty scoreboard */
         /* initialise the random number generator for your program */
         /* display the menu continuously until the user decided to quit the
          * program
@@ -26,9 +25,6 @@ int main(void)
                         /* based on the choice the user made you should:
                          */
                                 /* play the game */
-                                        /* capture the winner and add them to
-                                         * the scoreboard if there is space */
-                                /* display the high scores */
                                 /* quit the program */
         return EXIT_SUCCESS;
 }

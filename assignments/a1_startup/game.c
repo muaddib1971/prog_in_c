@@ -39,7 +39,6 @@ void play_game(void)
         /* init the game struct */
         /* the main game loop */
         /* swap the game pointers */
-        /* return the winner */
 }
 
 /**

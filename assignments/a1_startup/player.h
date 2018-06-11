@@ -19,7 +19,7 @@
 #define PLAYER_H
 /* forwards declaration of the game struct so we can pointers to game passed in
  * as parameters in this module */
-struct game;
+/* struct game; */
 
 /* the maximum length of a player's name */
 #define NAMELEN 20
