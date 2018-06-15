@@ -28,7 +28,7 @@ enum input_result init_game(struct game* newgame)
 }
 
 /**
- * manages the main game loop - calls init_player to initialise the players and
+ * manages the main game loop - calls init_game to initialise the game and
  * then loops and calls take_turn for the current player and swaps players until
  * a player has won the game
  **/
