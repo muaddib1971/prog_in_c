@@ -1,0 +1,212 @@
+Some guidelines for the exam
+============================
+
+Introduction
+------------
+The final exam for Programming in C will test your ability to 
+interpret C language code, and to apply commonly-used C language 
+features to small and medium-sized problems.
+
+To this end, we are not interested in esoteric features of the language, 
+Furthermore, some advanced topics will not be examinable, including 
+Unions, etc. Further details are provided below.
+
+Instructions to Candidates
+--------------------------
+
+The exam paper will include a front page which presents exam date, time 
+and duration details, and instructions to candidates. A copy of the 
+front page of the exam is attached below.
+
+The exam will also include an Appendix which lists useful standard C library
+functions, for reference during the exam. See the C reference card attached below. 
+
+The key points to note in the front page are as follows. The exam is a closed 
+book 2-hours exam. The exam accounts for 50% of your final assessment in the 
+course and will be marked out of 120. As a rough guide therefore, a mark is 
+worth 1 minute of your time. The marks associated with each question (and 
+its constituent parts) represent the approximate time you should allocate to 
+answering the question (and its constituent parts).
+
+Finally, while the exam duration is two hours, we believe it may be 
+completed in one hour. What this means is that you should have ample time to 
+answer questions, but only if you come prepared. Strategies for preparation 
+appear under "Preparation".
+
+Examinable and Non-Examinable Topics
+------------------------------------
+
+The following topics will be examinable:
+
+  . data types and operators (associativity and precedence rules)
+  . flow control statements
+  . standard input/output statements (scanf, printf, getchar, gets,
+    putchar, puts, fputs)
+  puts(str) === printf("%s\n", str)
+  . functions, definitions and declarations, value and reference 
+    parameters, function return type; 
+    BOOLEAN isnumeric(const char *);
+    struct player;
+    struct player{
+        //stuff inside
+    };
+
+    int main(void)
+    {
+        auto int i;
+    }
+
+in the header:
+    extern char chars[];
+    in the .c file:
+-->    char chars[3];
+  . storage classes - 
+        auto - automatically allocated in the block it was declared, 
+        deallocated at the end of the block
+        extern, global variables, functions, 
+        register: allocate a register for var
+        not guaranteed to get it.
+        can't take the address of it.
+
+        static - static local is like a global but only visible in one 
+        function. 
+
+        static int times_called(void)
+        {
+            static int times = 0;
+            return ++times;
+        }
+
+        static global - only visible in one file. 
+  . C preprocessor (#define, #include)
+  . command line arguments
+  . file handling (fopen, fclose, ftell, fseek, fscanf, fread, fprintf,
+    fwrite, fgets, fputs, fgetc, getc, fputc, putc, rewind)
+  . string handling (strcmp, strncmp, strlen, strcat, strcpy, strncpy, etc)
+  . pointers, pointer arithmetic, array, 2-dimensional array
+     str[3], *(str+3), 3[str]
+  . header files familiarity of basic symbols, macros and library 
+    support: ctype.h, string.h, stdio.h, stdlib.h and others you
+    may have encountered
+  . structs including dynamic allocation thereof, use as parameters, function 
+    return types
+  . dynamic memory allocation of objects of built-in and user-defined types
+  . dynamic data structures: singly-linked lists 
+  . genericity (Module 11)
+  . recursion
+  . functions as arguments
+
+The following topics will not be examined
+  
+  . unions, bit fields
+  . tree data structures
+  . doubly-linked lists 
+
+Preparation
+-----------
+
+The key is to practise and pratise, lots of them! 
+
+In the context of CPT220 you can start your preparation by creating small compilable 
+code samples that illustrate to yourself how the common library functions are used,
+such as fopen(), fgets(), the string functions, etc. Other features
+of C may also be highlighted with simple examples, such as command line
+argument exemplars. 
+
+  a/ Practise on the list of C library functions.
+     For example, you might want to develop a small sample program to show
+     how ctype.h macros are used, or how strtok() is used, etc, beyond
+     just having the definitions/prototypes. 
+
+  b/ Develop sample programs, each one highlighting the fundamental use 
+     of a set of C language features and program needs. Think about the 
+     following list:
+
+        functions -- returning type T or T*, accepting arguments of
+        type T or T*, call-by-value/reference (including pointers).
+
+        file processing -- opening, processing, closing. Think of
+        counting characters, words, lines, and write these as programs
+        and functions, where these functions accept file names or FILE
+        pointers.
+
+        string processing -- think about what a program or function
+        might/could do to a string; what about the use of static
+        storage to remember the state of a string after invocation,
+        etc.
+
+        clargs -- basic processing/use or argc and argv. How to
+        reference argv entries and individual characters. Do this with
+        [] and pointer references.
+
+        dynamic allocation and dynamic data structures -- assignment 2
+        solutions are a good platform for revision, but write your own
+        applications (functions/programs/segments of code). Also, do not 
+        limit your preparation to dynamic data structures; dynamic 
+        allocation is used in other contexts as well.
+ 
+  c/ Develop solutions for a few past exam questions. Practise the
+     questions in reverse chronological order. 
+      
+  d/ Develop the skill of being concise, yet clear in your presentations.
+     Don't use long identifiers, otherwise time will be lost, but make 
+     sure that any mnemonics reflect their purpose clearly. If necessary, 
+     use a legend. This will reduce the need for comments, unless of
+     course comments are called for in the question.
+       
+  e/ When developing solutions do so by writing them down on paper
+     and measure the time spent, comparing this against the suggested
+     time. If you do have time then also develop solutions for
+     compilation and execution on a computer, this will often reveal
+     problems of understanding that paper solutions might overlook.
+
+  f/ Study your assignments. 
+   
+     The first assignment focused on basic constructs, functions and
+     arrays and structs. Think of new functions (design them yourself). Write
+     versions to return values via both return mechanism (typed functions)
+     and parameters list (void functions). Work with functions and strings and pointers.
+      
+    struct string
+    {
+        char * array;
+        size_t size;
+    };
+
+    struct string * stringptr;
+
+    stringptr->array == (*stringptr).array;
+
+     The second assignment brought in files and structs, as well as dynamic 
+     data structures. However, remember not to just rely on solutions you 
+     produced for the assignment. 
+
+     Invent and write code for several situations, mainly to get to grips
+     with use of structs, the dot qualification operator, etc. Develop
+     functions that accept structs as parameters, for instance, and then
+     operate on them.
+
+  g/ Review all tute and lab material, as well as textbook questions. Some
+     of these will not be exam-type questions but they will help you build
+     up confidence.
+
+  h/ As function pointers and void pointers have not been previously 
+     assessable you are advised to make sure you have a focus on these. 
+     Generic programming is used a great deal in practical C programming
+     especially in operating systems programming but anywhere we want
+     to built libraries not fixed to a type. 
+
+ 
+Exam Structure
+--------------
+
+* Question 1: Four (4 or 5) questions, worth 35 marks in total
+* Question 2: around generics and other stuff 
+* Question 3: memory, files
+* Question 5: linked lists
+
+
+--------
+Good luck!!!!!!!
+
+Paul Miller
