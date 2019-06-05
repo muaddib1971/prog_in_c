@@ -4,41 +4,60 @@
  * COURSE CODE     :
  *
  * Startup code provided by Paul Miller for use in "Programming in C",
- * study period 4, 2018.
+ * study period 2, 2019.
  *****************************************************************************/
+#include "bar_list.h"
 #include "board.h"
-#include "helpers.h"
 #include "io.h"
-#include <stdio.h>
-#include <string.h>
+#include "rules.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H
-
 /**
- * data structure definitions for the player module
- **/
-#define NAMELEN 20
-
-/**
- * predeclare the game struct so that we can use pointers to it in this header
- * file
+ * forwards declaration of the game struct so we can have pointers to a game
+ * without knowing the internal details of a game struct.
  **/
 struct game;
+/**
+ * The maximum length of a player name in the game.
+ **/
+#define NAME_LEN 20
+/**
+ * maximum prompt length needed for any part of the game
+ **/
+#define MAXPROMPTLEN 240
 
 /**
- * data structure to represent the details on each player. A player shall have
- * a name, a current score (maximum number of their token in a row) as well as
- * their token colour. We also store a pointer to the game as that way we don't
- *
+ * definition of a player - they have a name, score, token (ie, colour),
+ * a bar_list (that's the tokens that have been kicked off the board by
+ * the oponent, a pointer to the current game (that just means we have
+ * fewer variables to pass around), an orientation (which way around the board
+ * that the player goes).
  **/
-struct player {
-        char name[NAMELEN + 1];
+struct player
+{
+        char name[NAME_LEN + 1];
         int score;
-        enum cell token;
-        struct game* curr_game;
+        enum piece token;
+        struct bar_list bar_list;
+        struct game* curgame;
+        enum orientation orientation;
 };
 
-enum input_result player_init(struct player*, int, struct game*);
-enum input_result player_turn(struct player*);
+/**
+ * you may add your own data structures to this module
+ **/
+
+/**
+ * end of the student's data structures for this module
+ **/
+
+/**
+ * globally visible functions available and required to be implemented. You
+ * may add your own if you see the need.
+ **/
+BOOLEAN
+player_init(struct player*, struct game*);
+enum input_result
+player_take_turn(struct player*);
 #endif

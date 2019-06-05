@@ -4,27 +4,49 @@
  * COURSE CODE     :
  *
  * Startup code provided by Paul Miller for use in "Programming in C",
- * study period 4, 2018.
+ * study period 2, 2019.
  *****************************************************************************/
-/**
- * This file contains the shared definitions required for the game.
- **/
-
-/**
- * include guard to ensure that in each C source file "source translation unit"
- * that this module is only included once
- **/
-
+#include <assert.h>
+#include <stdlib.h>
+#include <stdio.h>
 #ifndef SHARED_H
 #define SHARED_H
-
 /**
- * The BOOLEAN datatype used in this application
+ * The boolean type - defines values for FALSE (0) and TRUE (1)
  **/
-
-typedef enum { /* FALSE comes first as we start counting at 0 */
-               FALSE,
-               TRUE
+typedef enum
+{
+        FALSE,
+        TRUE
 } BOOLEAN;
 
-#endif /* end of include guard */
+/**
+ * in some places I might want to return FALSE when something fails but
+ * also a number when it succeeds
+ **/
+struct falsible_long
+{
+        long thelong;
+        BOOLEAN success;
+};
+
+/**
+ * which way around the board do we go? I've provided it here because it
+ * was needed in several different places in the program
+ **/
+enum orientation
+{
+        OR_CLOCKWISE,
+        OR_ANTICLOCKWISE
+};
+
+/**
+ * a move has an index on the board it starts at and a count of how many
+ * places to move the piece
+ **/
+struct move
+{
+        int index, count;
+};
+extern const struct move error_move;
+#endif

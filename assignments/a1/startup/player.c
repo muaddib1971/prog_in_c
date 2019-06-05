@@ -4,28 +4,28 @@
  * COURSE CODE     :
  *
  * Startup code provided by Paul Miller for use in "Programming in C",
- * study period 4, 2018.
+ * study period 2, 2019.
  *****************************************************************************/
 #include "player.h"
 #include "game.h"
 
 /**
- * initialise the player by prompting and reading the player's name from
- * the keyboard. Set the rest of the elements of the player struct to sensible
- * values. and capture the game pointer in the player's game pointer so we
- * don't have to repeatedly pass it around later.
+ * do the work to initialise a player here. Please refer to the assignment
+ * specifications for what you need to do here.
  **/
-enum input_result player_init(struct player* curplayer, int playernum,
-                              struct game* curgame) {
-        return IR_FAILURE;
+BOOLEAN
+player_init(struct player* aplayer, struct game* thegame)
+{
+        return FALSE;
 }
 
 /**
- * Prints out the current board and whose turn it is.  It then
- * handles input (and validation of input) for a turn. It then checks if the
- * the move requested is valid and if it is it applies it. For most of these
- * actions, a function should be called in another module.
+ * implement the taking of a turn and turn validation in this function and
+ * functions called from here. Please refer to the assignment specifications
+ * for details on what you need to do here.
  **/
-enum input_result player_turn(struct player* curplayer) {
+enum input_result
+player_take_turn(struct player* current_player)
+{
         return IR_FAILURE;
 }

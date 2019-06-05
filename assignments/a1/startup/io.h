@@ -4,9 +4,10 @@
  * COURSE CODE     :
  *
  * Startup code provided by Paul Miller for use in "Programming in C",
- * study period 4, 2018.
+ * study period 2, 2019.
  *****************************************************************************/
 #include "board.h"
+#include "helpers.h"
 #include <ctype.h>
 #include <limits.h>
 #include <stdarg.h>
@@ -18,73 +19,119 @@
 #define IO_H
 
 /**
- * constant that defines the extra chars at the end of a string after a
- * successul call to fgets, namely the newline character followed by the null
- * terminator
+ * trailing chars added by fgets after each call
  **/
-
-#define EXTRACHARS 2
+#define EXTRA_CHARS 2
 
 /**
- * constant defining a single line of input
+ * the length of a line in our system
  **/
-#define LINELEN 80
+#define LINE_LEN 80
 
 /**
- * decimal is base 10 - this constant is required for use with strtol.
+ * the specification of decimal as required by strtol() and related functions
  **/
 #define DECIMAL 10
 
 /**
- * enumeration to identify colours available to be used on the system. These
- * colours were gotten from a stack overflow article:
- *
- * https://stackoverflow.com/questions/3219393/stdlib-and-colored-output-in-c
- *
- * Please note that I apply a convention of spelling where I use US spelling in
- * my code but australian spelling in comments.
+ * The various results of an i/o operation
  **/
-
-enum color {
-        COL_RED,
-        COL_GREEN,
-        COL_YELLOW,
-        COL_BLUE,
-        COL_MAGENTA,
-        COL_CYAN,
-        COL_RESET
+enum input_result
+{
+        /* the operation failed */
+        IR_FAILURE,
+        /* the operation succeeded */
+        IR_SUCCESS,
+        /* the user has chosen to skip their turn */
+        IR_SKIP_TURN,
+        /* the user has chosen to quit the game */
+        IR_QUIT
 };
 
 /**
- * the count of colours in the above enumeration.
+ * three colours to keep track of: red, white and reset which resets the display
+ * back to the default colours.
  **/
-
-#define NUM_COLORS 7
+#define NUM_COLORS 3
 
 /**
- * global array of strings used to change colours in output. This is extern as
- * the memory must be allocated in exactly one place and therefore can't be
- * done in a header file that may be included in multiple other files.
+ * the array of strings that specify the ansi colour codes for turning on and
+ * off specific colours.
  **/
-
 extern const char* color_strings[];
 
 /**
- * enumeration that defines the possible values that can be returned from input/
- * output requests. Failure means that the result was undesirable, and thus
- * should be reprompted, success means we have a result we can pass onto the
- * next xtage and rtm means return to menu - so end the game.
+ * the colors that are possible - these match directly to array indexes in the
+ * color_strings array.
  **/
-enum input_result { IR_FAILURE, IR_SUCCESS, IR_RTM };
+enum color
+{
+        COLOR_RED,
+        COLOR_WHITE,
+        COLOR_RESET
+};
 
 /**
- * functions implemented in this module. Please see io.c for further details
+ * tokens that are possible in the game
+ **/
+enum token
+{
+        RED_TOKEN = 'O',
+        WHITE_TOKEN = 'X',
+        EMPTY_TOKEN = ' ',
+        INVALID_TOKEN = EOF
+};
+
+/**
+ * These are examples of C macros. A macro is like a function (mostly) in terms
+ * of syntax but does not have the overheads of a function. This code replaces
+ * inline each call to it. The downside is that we can't specify the type of the
+ * parameters and so if you pass the wrong stuff in, the compiler will complain
+ * about the line of code, not this macro.
+ *
+ * This macro just puts a line of chars in a row based on what you specify. So
+ * for example, PUTCHARS('-', 5) would print out 5 dashes.
+ **/
+#define PUTCHARS(ch, count)                                                    \
+        {                                                                      \
+                int char_count;                                                \
+                for (char_count = 0; char_count < (int)count; ++char_count)    \
+                {                                                              \
+                        putchar(ch);                                           \
+                }                                                              \
+        }
+
+/**
+ * this is also a macro. it prints out a line of characters in a row followed
+ * by a newline character. To print out 80 dashes followed by a newline
+ * character I would call this macro as PUTLINE('-', 80)
+ **/
+#define PUTLINE(ch, count)                                                     \
+        {                                                                      \
+                PUTCHARS(ch, count);                                           \
+                putchar('\n');                                                 \
+        }
+
+/**
+ * You may add your own data structures here to help with processing of i/o.
  **/
 
-int normal_print(const char format[], ...);
+/**
+ * student's data structure declarations end here.
+ **/
 
-int error_print(const char format[], ...);
+/**
+ * globally available functions - you may need to add more of your own.
+ **/
+void
+clear_buffer(void);
 
-void print_board(gameboard);
+int
+normal_print(const char format[], ...);
+
+int
+error_print(const char format[], ...);
+
+void board_print(board, enum orientation);
 
 #endif

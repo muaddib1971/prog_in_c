@@ -4,42 +4,48 @@
  * COURSE CODE     :
  *
  * Startup code provided by Paul Miller for use in "Programming in C",
- * study period 4, 2018.
+ * study period 2, 2019.
  *****************************************************************************/
 #include "shared.h"
-#include <assert.h>
-#include <stdio.h>
 #include <string.h>
 
 #ifndef BOARD_H
 #define BOARD_H
-/**
- * possible values for a board cell: red player holds it, blue player holds it,
- * it might be blank. Invalid value is at the end of each enum for the purposes
- * of use in a switch statement - -1 always represents an invalid value in my
- * enumerations.
- **/
-enum cell { C_NOUGHT, C_CROSS, C_BLANK, C_INVALID = EOF };
+#define BOARD_WIDTH 12
+#define BOARD_HEIGHT 14
 
 /**
- * the board is always 6 x 6 for all boards in this game.
+ * a piece on the board is just an integer on the board with the value specified
+ * by thos enumeration. It has specifically been constructured so that empty is
+ * 0, red is 1 and white is 2 with the invalid token being -1. Please don't use
+ * the integer values - use the values for the constants as your code will be
+ * much more readable.
  **/
-#define BOARDHEIGHT 8
-#define BOARDWIDTH BOARDHEIGHT
+enum piece
+{
+        P_EMPTY,
+        P_RED,
+        P_WHITE,
+        P_INVALID = -1
+};
 
 /**
- * the board type is simply an alias to a 2d array of cell being BOARDHEIGHT X
- * BOARDWIDTH in dimensions. For iteration purposes, it is more efficient for
- * the height to be specified first as it means a normal iteration over the
- * board is a strict iteration over sequential memory.
+ * a board is simply an array of pieces being 14 high and 12 wide. Please note
+ * that we normally represent the height dimension as coming first in our
+ * programs as that's more efficient in terms of speed to access the memory.
  **/
-typedef enum cell gameboard[BOARDHEIGHT][BOARDWIDTH];
+typedef enum piece board[BOARD_HEIGHT][BOARD_WIDTH];
+/**
+ * You may add your own data structures here to manage this module
+ **/
 
 /**
- * functions defined for the board type. Full documentation of the type is
- * included in the .c module and further information is also provided in the
- * assignment specification.
+ * end of the declarations added by the student for this module
  **/
-void board_init(gameboard);
 
-#endif /* BOARD_H */
+/**
+ * I have only provided one global function declaration here but you should feel
+ * free to add more of your own.
+ **/
+void board_init(board);
+#endif

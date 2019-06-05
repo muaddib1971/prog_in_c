@@ -4,72 +4,61 @@
  * COURSE CODE     :
  *
  * Startup code provided by Paul Miller for use in "Programming in C",
- * study period 4, 2018.
+ * study period 2, 2019.
  *****************************************************************************/
 #include "io.h"
-
+const char* color_strings[NUM_COLORS] = { "\x1b[31m", "\x1b[37m", "\x1b[0m" };
 /**
- * The colour codes for printing out coloured output. You just print out the
- * code to change the current colour being printed outThe colour codes for
- * printing out coloured output. You just print out the
- * code to change the current colour being printed out.
+ * function that does buffer clearing when there is a buffer overflow on
+ * input - only call this function when there is an actual buffer overflow as
+ * otherwise you will have additional problems
  **/
-const char* color_strings[NUM_COLORS] = {
-    /* red */ "\x1b[31m",    /* green */ "\x1b[32m",
-    /* yellow */ "\x1b[33m",
-    /* blue */ "\x1b[34m",   /* magenta */ "\x1b[35m",
-    /* cyan */ "\x1b[36m",   /* reset */ "\x1b[0m",
-};
-
-/**
- * clear the input buffer so we don't skip prompts. Please note that you don't
- * need to call this function unless you have actually detected that too
- * much input has been received. Please note that as this function is declared
- * static, it must be called in this module and not outside of it.
- **/
-static void read_rest_of_line(void) {
+void clear_buffer(void)
+{
         int ch;
-        while (ch = getc(stdin), ch != '\n' && ch != EOF)
+        /* while there are still chars to read and we have not reached
+         * the newline char, keep reading */
+        while (ch = getc(stdin), ch != EOF && ch != '\n')
                 ;
+        /* reset the error status on the stdin file pointer */
         clearerr(stdin);
 }
 
 /**
- * prints out the current state of the board
+ * this function simply calls printf. It is implemented here so that if we
+ * wish to change our output target (such as using a gui) we could change our
+ * implementation here and it would not affect any other code in our project.
  **/
-void print_board(gameboard board) {}
-
-/**
- * acts as a proxy to printf. All output sent here will go to normal output via
- * "stdout"
- **/
-int normal_print(const char format[], ...) {
-        va_list va_args;
-        int output_chars;
-        /* initialise the variable args */
-        va_start(va_args, format);
-        /* pass them to printf */
-        output_chars = vprintf(format, va_args);
-        /* finish with processing the variable args */
-        va_end(va_args);
-        /* return the number of chars written out */
-        return output_chars;
+int normal_print(const char format[], ...)
+{
+        int char_count;
+        va_list vlist;
+        va_start(vlist, format);
+        char_count = vprintf(format, vlist);
+        va_end(vlist);
+        return char_count;
 }
 
 /**
- * acts as a proxy to printf, except the output gets sent to stderr, the
- * error file pointer. . All output sent here will go to normal output via
- * "stdout"
+ * this function prints out error messages to the stderr file pointer. It is
+ * standard practice to output all error messages to stderr rather than
+ * stdout (where printf sends messages).
  **/
-int error_print(const char format[], ...) {
-        va_list va_args;
-        int output_chars;
-        /* initialise the variable args */
-        va_start(va_args, format);
-        /* output preamble to an error message: */
-        output_chars = fprintf(stderr, "Error: ");
-        /* print the error message */
-        output_chars += vfprintf(stderr, format, va_args);
-        output_chars += fprintf(stderr, "\n");
-        return output_chars;
+int error_print(const char format[], ...)
+{
+        int char_count = 0;
+        va_list vlist;
+        char_count += fprintf(stderr, "Error: ");
+        va_start(vlist, format);
+        char_count += vfprintf(stderr, format, vlist);
+
+        return char_count;
+}
+
+/**
+ * defines how to print the board given the orientation passed in. Pleas
+ * see the asssignment specifications for further details.
+ **/
+void board_print(board theboard, enum orientation orient)
+{
 }
