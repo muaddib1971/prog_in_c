@@ -76,8 +76,8 @@ enum color
  **/
 enum token
 {
-        RED_TOKEN = 'O',
-        WHITE_TOKEN = 'X',
+        RED_TOKEN = 'X',
+        WHITE_TOKEN = 'O',
         EMPTY_TOKEN = ' ',
         INVALID_TOKEN = EOF
 };
@@ -123,14 +123,11 @@ enum token
 /**
  * globally available functions - you may need to add more of your own.
  **/
-void
-clear_buffer(void);
+void clear_buffer(void);
 
-int
-normal_print(const char format[], ...);
+int normal_print(const char format[], ...);
 
-int
-error_print(const char format[], ...);
+int error_print(const char format[], ...);
 
 void board_print(board, enum orientation);
 

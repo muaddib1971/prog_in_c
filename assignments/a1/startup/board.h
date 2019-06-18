@@ -8,7 +8,6 @@
  *****************************************************************************/
 #include "shared.h"
 #include <string.h>
-
 #ifndef BOARD_H
 #define BOARD_H
 #define BOARD_WIDTH 12
