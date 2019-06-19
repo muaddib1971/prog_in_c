@@ -24,6 +24,7 @@ enum input_result
         SUCCESS,
         EMPTY
 };
+
 typedef void (*action)(char[]);
 struct menu_item
 {
