@@ -2,7 +2,7 @@
 
 #define NUMARGS 2
 #define FILEARG argv[1]
-
+void jumble(char*);
 int main(int argc, char* argv[])
 {
         /* the user's choice from the menu */
