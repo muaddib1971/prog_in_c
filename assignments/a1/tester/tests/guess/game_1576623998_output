@@ -1,0 +1,34 @@
+Welcome to my menu
+------------------
+1) reverse a string
+2) play guess a number
+3) fold a string
+4) validate tictactoe winner
+5) check if change can be given
+6) access the help menu
+7) quit the program
+Please enter your choice: I have selected a number between 1 and 10. You have 10 guesses left.
+Please enter your guess: try a higher number (you have 9 guesses left).
+Please enter your guess: try a higher number (you have 8 guesses left).
+Please enter your guess: Try a lower number (you have 7 guesses left).
+Please enter your guess: Congratulations! You have won the game!
+Do you want to play again? I have selected a number between 1 and 10. You have 10 guesses left.
+Please enter your guess: try a higher number (you have 9 guesses left).
+Please enter your guess: Try a lower number (you have 8 guesses left).
+Please enter your guess: Try a lower number (you have 7 guesses left).
+Please enter your guess: Try a lower number (you have 6 guesses left).
+Please enter your guess: Congratulations! You have won the game!
+Do you want to play again? I have selected a number between 1 and 10. You have 10 guesses left.
+Please enter your guess: Try a lower number (you have 9 guesses left).
+Please enter your guess: Congratulations! You have won the game!
+Do you want to play again? Thanks for playing "guess a game"
+Welcome to my menu
+------------------
+1) reverse a string
+2) play guess a number
+3) fold a string
+4) validate tictactoe winner
+5) check if change can be given
+6) access the help menu
+7) quit the program
+Please enter your choice:

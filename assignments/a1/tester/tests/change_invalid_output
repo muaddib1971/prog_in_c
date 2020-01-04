@@ -1,0 +1,53 @@
+Welcome to my menu
+------------------
+1) reverse a string
+2) play guess a number
+3) fold a string
+4) validate tictactoe winner
+5) check if change can be given
+6) access the help menu
+7) quit the program
+Please enter your choice: Can we issue sufficient change ?
+--------------------------------
+Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Error: invalid denomination entered. Please try again.
+Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Error: incorrect number of x's in string.
+Error: invalid denomination entered. Please try again.
+Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Error: c is not a valid integer.
+Error: invalid denomination entered. Please try again.
+Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Error: incorrect number of x's in string.
+Error: invalid denomination entered. Please try again.
+Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Error: 3.3 is not a valid integer.
+Error: invalid denomination entered. Please try again.
+Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Error: .5 is not a valid integer.
+Error: invalid denomination entered. Please try again.
+Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Error: input was too long. Please try again.
+Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Please enter a change request in the format of dollars.cents, for example 3.50
+is $3.50 - press [enter] or ctrl-d on a new line to end entering of currencies :
+Error: There have been no requests for change. I cannot continue. 
+Error: option not run successfully.
+Welcome to my menu
+------------------
+1) reverse a string
+2) play guess a number
+3) fold a string
+4) validate tictactoe winner
+5) check if change can be given
+6) access the help menu
+7) quit the program
+Please enter your choice: 

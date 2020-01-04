@@ -1,0 +1,25 @@
+Welcome to my menu
+------------------
+1) reverse a string
+2) play guess a number
+3) fold a string
+4) validate tictactoe winner
+5) check if change can be given
+6) access the help menu
+7) quit the program
+Please enter your choice: I have selected a number between 1 and 10. You have 10 guesses left.
+Please enter your guess: Error: a is not a valid integer.
+data input error.
+Please enter your guess: Error: number is not in the allowed range. Please try again.
+Please enter your guess: Error: number is not in the allowed range. Please try again.
+Please enter your guess: Error: number is not in the allowed range. Please try again.
+Please enter your guess: Welcome to my menu
+------------------
+1) reverse a string
+2) play guess a number
+3) fold a string
+4) validate tictactoe winner
+5) check if change can be given
+6) access the help menu
+7) quit the program
+Please enter your choice:

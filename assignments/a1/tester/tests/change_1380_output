@@ -1,0 +1,41 @@
+Welcome to my menu
+------------------
+1) reverse a string
+2) play guess a number
+3) fold a string
+4) validate tictactoe winner
+5) check if change can be given
+6) access the help menu
+7) quit the program
+Please enter your choice: Can we issue sufficient change ?
+--------------------------------
+Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Please enter a change amount in the format of [denom]x[count], eg: 100x3 is 3
+one dollar coins. Press [enter] or ctrl-d on a new line to end the input of
+denominations: Please enter a change request in the format of dollars.cents, for example 3.50
+is $3.50 - press [enter] or ctrl-d on a new line to end entering of currencies :
+Please enter a change request in the format of dollars.cents, for example 3.50
+is $3.50 - press [enter] or ctrl-d on a new line to end entering of currencies :
+Please enter a change request in the format of dollars.cents, for example 3.50
+is $3.50 - press [enter] or ctrl-d on a new line to end entering of currencies :
+Please enter a change request in the format of dollars.cents, for example 3.50
+is $3.50 - press [enter] or ctrl-d on a new line to end entering of currencies :
+all requested changes could be matched.
+The denominations used are: 5x0 10x8 20x0 50x14 100x0 200x3 500x0 1000x0 
+Welcome to my menu
+------------------
+1) reverse a string
+2) play guess a number
+3) fold a string
+4) validate tictactoe winner
+5) check if change can be given
+6) access the help menu
+7) quit the program
+Please enter your choice: 

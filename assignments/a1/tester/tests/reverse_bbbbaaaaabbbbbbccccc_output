@@ -1,0 +1,20 @@
+Welcome to my menu
+------------------
+1) reverse a string
+2) play guess a number
+3) fold a string
+4) validate tictactoe winner
+5) check if change can be given
+6) access the help menu
+7) quit the program
+Please enter your choice: Please enter a string to reverse (maximum of 80 characters): The reverse of the string entered is: cccccbbbbbbaaaaabbbb
+Welcome to my menu
+------------------
+1) reverse a string
+2) play guess a number
+3) fold a string
+4) validate tictactoe winner
+5) check if change can be given
+6) access the help menu
+7) quit the program
+Please enter your choice:

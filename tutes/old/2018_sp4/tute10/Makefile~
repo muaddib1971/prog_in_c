@@ -1,0 +1,10 @@
+
+
+menu.o: menu.c *.h
+	gcc -ansi -Wall -pedantic -c menu.c
+
+io.o: io.c *.h
+	gcc -ansi -Wall -pedantic -c io.c
+
+main.o: main.c *.h
+	gcc -ansi -Wall -pedantic -c main.c
